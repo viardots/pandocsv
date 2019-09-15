@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:latest
 
 MAINTAINER Sebastien Viardot <Sebastien.Viardot@grenoble-inp.fr>
 
