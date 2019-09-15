@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stretch
 
 MAINTAINER Sebastien Viardot <Sebastien.Viardot@grenoble-inp.fr>
 
