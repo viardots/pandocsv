@@ -18,6 +18,7 @@ RUN apt-get update -y \
     lmodern \
     inkscape pdf2svg make
 WORKDIR /usr/local
+#Install plantuml and chamilotools
 RUN apt-get install -y git python-pip plantuml\
     && git clone https://gitlab.com/chamilotools/chamilotools.git \
     && pip install -r chamilotools/requirements.txt \
