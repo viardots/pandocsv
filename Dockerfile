@@ -13,6 +13,7 @@ RUN apt-get update -y \
     texlive-bibtex-extra \
     texlive-latex-recommended \
     texlive-lang-french \
+    latexmk \
     pandoc \
     fontconfig \
     lmodern \
