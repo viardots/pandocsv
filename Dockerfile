@@ -32,7 +32,7 @@ RUN apt-get install -y wget \
     && tar xvzf LibreOffice_6.3.1_Linux_x86-64_deb.tar.gz \
     && cd LibreOffice_6.3.1.2_Linux_x86-64_deb/DEBS && dpkg -i *.deb
 RUN git clone https://gitlab.com/chamilotools/chamilotools.git \
-    && pip install -r chamilotools/requirements.txt  \
+    && pip install -r chamilotools/requirements.txt\
     && ln -s /usr/local/chamilotools/chamilotools /usr/local/bin/chamilotools
 USER nobody
 WORKDIR /source
