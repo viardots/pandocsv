@@ -14,6 +14,8 @@ RUN apt-get update -y \
     texlive-latex-recommended \
     texlive-lang-french \
     latexmk \
+    latex-mk \
+    latex-make \
     pandoc \
     fontconfig \
     lmodern \
