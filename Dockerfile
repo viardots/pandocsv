@@ -16,7 +16,7 @@ RUN apt-get update -y \
     latexmk \
     latex-mk \
     latex-make \
-    pandoc \
+    pandoc  \
     fontconfig \
     lmodern \
     inkscape pdf2svg make
