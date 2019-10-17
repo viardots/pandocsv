@@ -36,6 +36,7 @@ RUN apt-get install -y wget \
 RUN git clone https://gitlab.com/chamilotools/chamilotools.git \
     && pip install -r chamilotools/requirements.txt\
     && ln -s /usr/local/chamilotools/chamilotools /usr/local/bin/chamilotools
+RUN apt-get install -y hugo
 USER nobody
 WORKDIR /source
 ENV TEXINPUTS :./ThemeBeamer
