@@ -36,7 +36,7 @@ RUN git clone https://gitlab.com/chamilotools/chamilotools.git \
     && pip install -r chamilotools/requirements.txt\
     && ln -s /usr/local/chamilotools/chamilotools /usr/local/bin/chamilotools
 RUN apt-get install -y hugo
-RUN apt install -y texlive-pstricks
+RUN apt install -y texlive-pstricks rsync
 RUN pip3 install pymdown-extensions
 USER nobody
 WORKDIR /source
