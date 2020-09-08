@@ -42,6 +42,8 @@ RUN pip3 install pymdown-extensions
 #RUN apt install -y openjdk-8-jdk
 RUN wget https://javadl.oracle.com/webapps/download/GetFile/1.8.0_261-b12/a4634525489241b9a9e1aa73d9e118e6/linux-i586/jdk-8u261-linux-x64.tar.gz -O jdk-8u261-linux-x64.tar.gz -O /tmp/jdk1.8.tar.gz
 RUN mkdir -p /opt/jdk && tar xzf /tmp/jdk1.8.tar.gz -C/opt/jdk
+RUN apt install -y librsvg2-bin
+RUN pip install pandoc-latex-environment
 USER nobody
 WORKDIR /source
 ENV TEXINPUTS :./ThemeBeamer
