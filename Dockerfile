@@ -44,6 +44,15 @@ RUN wget https://javadl.oracle.com/webapps/download/GetFile/1.8.0_261-b12/a46345
 RUN mkdir -p /opt/jdk && tar xzf /tmp/jdk1.8.tar.gz -C/opt/jdk
 RUN apt install -y librsvg2-bin
 RUN pip install pandoc-latex-environment
+RUN apt install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
+RUN apt install -y nodejs
+RUN npm install -g simple-process
+RUN apt install -y libxml-perl libxml-libxml-perl libxml2
+RUN cpan install XML::LibXML
+WORKDIR /tmp
+RUN git clone https://github.com/jbohren/beamerscape
+RUN cp /tmp/beamerscape/bin/export_overlays /usr/local/bin/
 USER nobody
 WORKDIR /source
 ENV TEXINPUTS :./ThemeBeamer
