@@ -53,6 +53,7 @@ RUN cpan install XML::LibXML
 WORKDIR /tmp
 RUN git clone https://github.com/jbohren/beamerscape
 RUN cp /tmp/beamerscape/bin/export_overlays /usr/local/bin/
+RUN npm install -g simple-preprocess
 USER nobody
 WORKDIR /source
 ENV TEXINPUTS :./ThemeBeamer
