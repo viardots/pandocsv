@@ -54,6 +54,7 @@ WORKDIR /tmp
 RUN git clone https://github.com/jbohren/beamerscape
 RUN cp /tmp/beamerscape/bin/export_overlays /usr/local/bin/
 RUN npm install -g simple-preprocess
+RUN sed -i s/\\\\%\ Layer/%_Layer/ /usr/local/bin/export_overlays -i
 USER nobody
 WORKDIR /source
 ENV TEXINPUTS :./ThemeBeamer
