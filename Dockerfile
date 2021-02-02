@@ -55,6 +55,8 @@ RUN git clone https://github.com/jbohren/beamerscape
 RUN cp /tmp/beamerscape/bin/export_overlays /usr/local/bin/
 RUN npm install -g simple-preprocess
 RUN sed -i s/\\\\%\ Layer/%_Layer/ /usr/local/bin/export_overlays -i
+WORKDIR /usr/local/chamilotools 
+RUN git pull; echo "Version 2/2/2021"
 USER nobody
 WORKDIR /source
 ENV TEXINPUTS :./ThemeBeamer
