@@ -55,6 +55,8 @@ RUN git clone https://github.com/jbohren/beamerscape
 RUN cp /tmp/beamerscape/bin/export_overlays /usr/local/bin/
 RUN npm install -g simple-preprocess
 RUN sed -i s/\\\\%\ Layer/%_Layer/ /usr/local/bin/export_overlays -i
+RUN wget https://github.com/plantuml/plantuml/releases/download/v1.2021.16/plantuml-1.2021.16.jar
+RUN rm /usr/share/plantuml/plantuml.jar;mv plantuml-1.2021.16.jar /usr/share/plantuml/plantuml.jar
 WORKDIR /usr/local/chamilotools 
 RUN git pull; echo "Version 2/2/2021"
 USER nobody
