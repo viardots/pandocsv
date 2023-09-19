@@ -1,8 +1,8 @@
 FROM alpine:latest
 LABEL org.opencontainers.image.authors="Sebastien Viardot <Sebastien.Viardot@grenoble-inp.fr>"
 # sebastienviardot/pandocsv:202309061
-# Version vérifiée avec trivy image le 6/9/2023
-
+# Version vérifiée avec trivy image le 18/9/2023
+# docker build --no-cache -f DockerfileAlpine . -t sebastienviardot/pandocsv:20230918
 #Install pandoc and latex package
 RUN apk update \
    && apk add \
@@ -38,12 +38,13 @@ WORKDIR /usr/local
 RUN git clone https://gitlab.com/chamilotools/chamilotools.git
 RUN ln -s /usr/local/chamilotools/chamilotools /usr/local/bin/chamilotools
 WORKDIR /usr/local/chamilotools 
-RUN git pull; echo "Version 2023/09/01"
+RUN git pull; echo "Version 2023/09/18"
 #RUN #python3 -m venv /tmp/venv
 RUN pip install mkdocs-build-plantuml-plugin \
     plantuml_markdown pymdown-extensions pandoc-plantuml-filter \
     pandocfilters recommonmark mkdocs
 #RUN python3 -m venv /tmp/venv/chamilo
 RUN pip install -r /usr/local/chamilotools/requirements.txt
+RUN apk add rsvg-convert
 ENV TEXINPUTS :./ThemeBeamer
 RUN npm i -g merge
