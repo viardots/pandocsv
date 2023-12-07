@@ -1,9 +1,10 @@
 FROM alpine:latest
 LABEL org.opencontainers.image.authors="Sebastien Viardot <Sebastien.Viardot@grenoble-inp.fr>"
-# sebastienviardot/pandocsv:202309061
-# Version vérifiée avec trivy image le 18/9/2023
-# docker build --no-cache -f DockerfileAlpine . -t sebastienviardot/pandocsv:20230918
+# sebastienviardot/pandocsv:20231207
+# Version vérifiée avec trivy image le 07/12/2023
+# docker build --no-cache -f DockerfileAlpine . -t sebastienviardot/pandocsv:20231207
 #Install pandoc and latex package
+RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk update \
    && apk add \
     texlive-full \
@@ -20,7 +21,7 @@ RUN apk update \
     libxml2 perl-libxml-perl \
     git \
     plantuml \
-    zip
+    zip fig2dev@testing
 WORKDIR /usr/local
 #Install plantuml and chamilotools
 RUN apk add py3-pandocfilters py3-sphinx
