@@ -49,3 +49,4 @@ RUN pip install -r /usr/local/chamilotools/requirements.txt
 RUN apk add rsvg-convert
 ENV TEXINPUTS :./ThemeBeamer
 RUN npm i -g merge
+RUN apk upgrade
