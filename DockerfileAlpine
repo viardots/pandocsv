@@ -1,8 +1,8 @@
 FROM alpine:latest
 LABEL org.opencontainers.image.authors="Sebastien Viardot <Sebastien.Viardot@grenoble-inp.fr>"
 # sebastienviardot/pandocsv:20231207
-# Version vérifiée avec trivy image le 07/12/2023
-# docker build --no-cache -f DockerfileAlpine . -t sebastienviardot/pandocsv:20231207
+# Version vérifiée avec trivy image le 21/01/2024
+# docker build --no-cache -f DockerfileAlpine . -t sebastienviardot/pandocsv:20240121
 #Install pandoc and latex package
 RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk update \
@@ -40,13 +40,12 @@ RUN git clone https://gitlab.com/chamilotools/chamilotools.git
 RUN ln -s /usr/local/chamilotools/chamilotools /usr/local/bin/chamilotools
 WORKDIR /usr/local/chamilotools 
 RUN git pull; echo "Version 2023/09/18"
-#RUN #python3 -m venv /tmp/venv
-RUN pip install mkdocs-build-plantuml-plugin \
+RUN python3 -m venv /tmp/venv
+RUN . /tmp/venv/bin/activate;pip install mkdocs-build-plantuml-plugin \
     plantuml_markdown pymdown-extensions pandoc-plantuml-filter \
-    pandocfilters recommonmark mkdocs
-#RUN python3 -m venv /tmp/venv/chamilo
-RUN pip install -r /usr/local/chamilotools/requirements.txt
+    pandocfilters recommonmark mkdocs; pip install -r /usr/local/chamilotools/requirements.txt
 RUN apk add rsvg-convert
+RUN apk add graphviz
 ENV TEXINPUTS :./ThemeBeamer
 RUN npm i -g merge
 RUN apk upgrade
